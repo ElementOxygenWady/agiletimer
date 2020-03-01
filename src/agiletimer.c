@@ -139,6 +139,9 @@ void agiletimer_free(PAgileTimer pstTimer) {
 PAgileTimerNode agiletimer_create_node(PAgileTimer pstTimer, Int iTimes, AgileTimerUserFunc cbFunc, AgileTimerUserFunc cbDtor, void *pArg, UInt uiRemain, UInt uiPeriod) {
     PAgileTimerNode pstNode = NULL;
 
+    if (gspstAgileTimerDefault == NULL)
+        agiletimer_new();
+
     if (pstTimer == NULL)
         pstTimer = gspstAgileTimerDefault;
 
