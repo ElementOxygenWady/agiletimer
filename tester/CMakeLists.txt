@@ -5,9 +5,15 @@ set(TESTER_SOURCE_FILES_C
     tester.c
 )
 
-set(TESTER_LIBS
-    agiletimer
-)
+if(ENABLE_SHARED)
+    set(TESTER_LIBS
+        agiletimer
+    )
+else()
+    set(TESTER_LIBS
+        agiletimer-static
+    )
+endif()
 
 set(TESTER_INCLUDE_DIRS
 )
